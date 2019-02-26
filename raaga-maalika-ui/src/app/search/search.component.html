@@ -1,3 +1,7 @@
-<p>
-  search works!
-</p>
+<button mat-raised-button color="primary" (click)="getTracks()">Get All Tracks</button>
+
+<div *ngIf="tracks">
+  <ul *ngFor="let track of tracks">
+    <li>{{ track.id }} => {{ track.trackName}}</li>
+  </ul>
+</div>

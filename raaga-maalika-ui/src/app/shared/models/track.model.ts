@@ -5,3 +5,4 @@ export class Track {
     album: string;
     genre: string;
 }
+

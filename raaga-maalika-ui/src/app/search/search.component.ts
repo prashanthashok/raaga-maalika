@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrackService } from '../shared/api/track.service';
 
 @Component({
   selector: 'app-search',
@@ -7,11 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  tracks: [];
+  tracks;
 
-  constructor() { }
+  constructor(private trackService: TrackService) { }
 
   ngOnInit() {
+  }
+
+  getTracks(){
+    this.trackService.getTracks().subscribe(
+      (data) => {
+        this.tracks = data;
+        console.log(this.tracks);
+      }
+    );
   }
 
 }
