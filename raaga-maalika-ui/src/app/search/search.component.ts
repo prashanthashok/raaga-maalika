@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackService } from '../shared/api/track.service';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-search',
@@ -9,6 +10,8 @@ import { TrackService } from '../shared/api/track.service';
 export class SearchComponent implements OnInit {
 
   tracks;
+  dataSource;
+  columnsToDisplay = ['id', 'trackName', 'artist', 'album', 'genre'];
 
   constructor(private trackService: TrackService) { }
 
@@ -19,9 +22,13 @@ export class SearchComponent implements OnInit {
     this.trackService.getTracks().subscribe(
       (data) => {
         this.tracks = data;
+        this.dataSource  = new MatTableDataSource(this.tracks);
         console.log(this.tracks);
       }
     );
   }
-
+  
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
