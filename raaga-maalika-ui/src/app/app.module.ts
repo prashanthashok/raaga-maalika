@@ -7,13 +7,17 @@ import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material.module';
+import { SearchListComponent } from './search/search-list/search-list.component';
+import { SearchTableComponent } from './search/search-table/search-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
-    LoginComponent
+    LoginComponent,
+    SearchListComponent,
+    SearchTableComponent
   ],
   imports: [
     BrowserModule,

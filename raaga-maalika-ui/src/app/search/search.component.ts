@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import { TrackService } from '../shared/api/track.service';
 import { MatTableDataSource } from '@angular/material';
+
 
 @Component({
   selector: 'app-search',
@@ -8,12 +9,13 @@ import { MatTableDataSource } from '@angular/material';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
+  
   tracks;
   dataSource;
-  columnsToDisplay = ['id', 'trackName', 'artist', 'album', 'genre'];
 
-  constructor(private trackService: TrackService) { }
+  constructor(private trackService: TrackService) {
+
+  }
 
   ngOnInit() {
   }
@@ -23,12 +25,12 @@ export class SearchComponent implements OnInit {
       (data) => {
         this.tracks = data;
         this.dataSource  = new MatTableDataSource(this.tracks);
+        //TODO: Sorting doesn't work yet...
+        //this.dataSource.sort = this.sort; 
+        console.log("Inside Search ");
         console.log(this.tracks);
       }
     );
   }
   
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
 }
