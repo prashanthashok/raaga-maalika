@@ -22,6 +22,8 @@ export class SearchComponent implements OnInit {
 
   getTracks(){
     this.tracks$ = this.trackService.getTracks();
+    console.log("Inside search");
+    console.log(this.tracks$);
     // .subscribe(
     //   (data) => {
     //     this.tracks$ = data;
