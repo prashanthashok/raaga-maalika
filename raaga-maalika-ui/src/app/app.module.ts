@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material.module';
 import { SearchListComponent } from './search/search-list/search-list.component';
 import { SearchTableComponent } from './search/search-table/search-table.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SearchTableComponent } from './search/search-table/search-table.compone
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     MaterialModule
   ],

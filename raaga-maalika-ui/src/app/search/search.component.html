@@ -1,6 +1,6 @@
 <button mat-raised-button color="primary" (click)="getTracks()">Get All Tracks</button>
 
 <div *ngIf="dataSource">
-<app-search-table [dataSource]="dataSource"></app-search-table>
-<app-search-list></app-search-list>
+<!-- <app-search-table [dataSource]="dataSource"></app-search-table> -->
+<app-search-list [tracks$]="tracks$"></app-search-list>
 </div>

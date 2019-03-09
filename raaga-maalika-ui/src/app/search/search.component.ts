@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class SearchComponent implements OnInit {
   
-  tracks;
+  tracks$;
   dataSource;
 
   constructor(private trackService: TrackService) {
@@ -21,16 +21,17 @@ export class SearchComponent implements OnInit {
   }
 
   getTracks(){
-    this.trackService.getTracks().subscribe(
-      (data) => {
-        this.tracks = data;
-        this.dataSource  = new MatTableDataSource(this.tracks);
-        //TODO: Sorting doesn't work yet...
-        //this.dataSource.sort = this.sort; 
-        console.log("Inside Search ");
-        console.log(this.tracks);
-      }
-    );
+    this.tracks$ = this.trackService.getTracks();
+    // .subscribe(
+    //   (data) => {
+    //     this.tracks$ = data;
+    //     this.dataSource  = new MatTableDataSource(data);
+    //     //TODO: Sorting doesn't work yet...
+    //     //this.dataSource.sort = this.sort; 
+    //     console.log("Inside Search ");
+    //     console.log(this.tracks$);
+    //   }
+    // );
   }
   
 }

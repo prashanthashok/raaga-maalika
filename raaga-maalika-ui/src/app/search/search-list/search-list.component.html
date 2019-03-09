@@ -1,3 +1,15 @@
-<p>
-  search-list works!
-</p>
+<div *ngIf="(tracks$ | async).length">
+<mat-selection-list #tracks>
+    <mat-list-option *ngFor="let track of tracks$ | async">
+      <h3 matLine>{{track.trackName}}</h3>
+      <p matLine>
+        <span>{{track.artist}}</span>
+      </p>
+      
+    </mat-list-option>
+  </mat-selection-list>
+  <p>
+      Songs selected: {{tracks.selectedOptions.selected.length}}
+    </p>
+</div>  
+  

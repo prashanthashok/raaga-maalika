@@ -18,7 +18,7 @@ export class SearchTableComponent implements OnInit {
 
   ngOnInit() {
     console.log("Inside Search Table");
-        console.log(this.dataSource);
+        //console.log(this.dataSource);
   }
 
   getTracks(){
